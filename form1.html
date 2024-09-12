@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <link rel="icon" href="images/logo.jpg" type="image/jpg" sizes="32x32">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #fff;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .form-group{
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            gap: 20px;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 800px;
+            background-color: #fff3f3;
+            backdrop-filter: blur(15px);
+            padding: 20px;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+        }
+        .title{
+            font-size: 28px;
+            color: #f44336;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            position: relative;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .form label{
+            position: relative;
+            color: #000;
+        }
+        .form option{
+            color: black;
+        }
+        .form label input,select{
+            width: 100%;
+            padding: 5px 10px 20px 5px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            color: #000;
+            background-color: #fff
+        }
+        .form label input+span,select+span{
+            position: relative;
+            left: 10px;
+            top: 15px;
+            color: #fff;
+            font-size: 0.9em;
+            cursor: text;
+            transition: 0.3s ease;
+        }
+        .form label input:placeholder-shown+span{
+            top: 15px;
+            font-size: 0.9em;
+        }
+        .form label input:focus+span,
+        .form label input:valid+span{
+            top: 30px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+        .form label input:valid+span{
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form label select:option-shown+span{
+            top: 15px;
+            font-size: 0.9em;
+        }
+        .form label select:focus+span,
+        .form label select:valid+span{
+            top: 30px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+        .form label select:valid+span{
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .button{
+            margin-left: 200px;
+            display: flex;
+            flex-direction: row;
+            gap: 100px;
+        }
+        .btn, .submit{
+            margin-top: 25px;
+            text-decoration: none;
+            color: #f44336;
+            border: 1px solid #f44336;
+            padding: 12px 34px;
+            font-size: 13px;
+            background: #fff3f3;
+            position: relative;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .btn:hover,
+        .submit:hover{
+            color: #000;
+            border: 1px solid #000;
+            background: none;
+            transition: 1s;
+        }
+        
+    @media (max-width: 768px) {
+        .form{
+            width: 90%;
+            margin-top: 100px;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+        .form-group{
+            justify-content: center;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+        }
+        .button{
+            margin-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <form method="post" action="process.php" autocomplete="off" class="form">
+        <p class="title"> Application Form</p>
+        <div class="form-group">
+            <div class="group1">
+                <label >
+                    <span>Register Number</span>
+                    <input type="number" id="registerNumber" name="registerNumber" required>
+                </label>
+                <label>
+                    <span>Student Name</span>
+                    <input type="text" id="studentName" name="studentName" required>
+                </label>
+                <label>
+                    <span>Gender</span>
+                    <select id="gender" name="gender" required>
+                        <option disabled selected></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </label>
+                <label>
+                    <span>Phone Number</span>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="\d{10}" required value="9876543210">
+                </label>
+                <label>
+                    <span>E-Mail</span>
+                    <input type="email" id="email" name="email" required value="name@domain.com">
+                </label>
+                <label>
+                    <span>HSE Mark</span>
+                    <input type="number" id="hseMark" name="hseMark" required>
+                </label>
+            </div>
+            <div class="group2">
+                <label>
+                    <span>Maths Mark</span>
+                    <input type="number" id="mathsMark" name="mathsMark" required>
+                </label>
+                <label>
+                    <span>Physics Mark</span>
+                    <input type="number" id="physicsMark" name="physicsMark" required>
+                </label>
+                <label>
+                    <span>Chemistry Mark</span>
+                    <input type="number" id="chemistryMark" name="chemistryMark" required>
+                </label>
+                <label>
+                    <span>Choice 1</span>
+                    <select id="choice1" name="choice1" required>
+                        <option disabled selected></option>
+                        <option value="BE01 - CIVIL">BE01 - CIVIL</option>
+                        <option value="BE02 - EEE">BE02 - EEE</option>
+                        <option value="BE03 - ECE">BE03 - ECE</option>
+                        <option value="BE04 - CSE">BE04 - CSE</option>
+                        <option value="BE05 - MECH">BE05 - MECH</option>
+                        <option value="BE06 - BME">BE06 - BME</option>
+                        <option value="BT01 - IT">BT01 - IT</option>
+                        <option value="BT02 - AI&DS">BT02 - AI&DS</option>
+                        <option value="BT03 - AI&R">BT03 - AI&R</option>
+                        <option value="BT04 - BIOTECH">BT04 - BIOTECH</option>
+                    </select>
+                </label>
+                <label>
+                    <span>Choice 2</span>
+                    <select id="choice2" name="choice2" required>
+                        <option disabled selected></option>
+                        <option value="BE01 - CIVIL">BE01 - CIVIL</option>
+                        <option value="BE02 - EEE">BE02 - EEE</option>
+                        <option value="BE03 - ECE">BE03 - ECE</option>
+                        <option value="BE04 - CSE">BE04 - CSE</option>
+                        <option value="BE05 - MECH">BE05 - MECH</option>
+                        <option value="BE06 - BME">BE06 - BME</option>
+                        <option value="BT01 - IT">BT01 - IT</option>
+                        <option value="BT02 - AI&DS">BT02 - AI&DS</option>
+                        <option value="BT03 - AI&R">BT03 - AI&R</option>
+                        <option value="BT04 - BIOTECH">BT04 - BIOTECH</option>
+                    </select>
+                </label>
+                <label>
+                    <span>Choice 3</span>
+                    <select id="choice3" name="choice3" required>
+                        <option disabled selected></option>
+                        <option value="BE01 - CIVIL">BE01 - CIVIL</option>
+                        <option value="BE02 - EEE">BE02 - EEE</option>
+                        <option value="BE03 - ECE">BE03 - ECE</option>
+                        <option value="BE04 - CSE">BE04 - CSE</option>
+                        <option value="BE05 - MECH">BE05 - MECH</option>
+                        <option value="BE06 - BME">BE06 - BME</option>
+                        <option value="BT01 - IT">BT01 - IT</option>
+                        <option value="BT02 - AI&DS">BT02 - AI&DS</option>
+                        <option value="BT03 - AI&R">BT03 - AI&R</option>
+                        <option value="BT04 - BIOTECH">BT04 - BIOTECH</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+        <div class="button">
+            <button type="submit"  class="submit" value="Submit" name="submit">Submit</button>
+        
+            <a href="application.html" class="btn">Back</a>
+        </div>
+    </form>
+</body>
+</html>
